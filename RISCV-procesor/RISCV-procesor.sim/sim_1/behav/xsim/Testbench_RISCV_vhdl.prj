@@ -1,0 +1,22 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../RISCV-procesor.srcs/sources_1/new/ALU_DECODER.vhd" \
+"../../../../RISCV-procesor.srcs/sources_1/new/BRAM.vhd" \
+"../../../../RISCV-procesor.srcs/sources_1/new/CTRL_DECODER.vhd" \
+"../../../../RISCV-procesor.srcs/sources_1/new/FORWARDING_UNIT.vhd" \
+"../../../../RISCV-procesor.srcs/sources_1/new/HAZARD_UNIT.vhd" \
+"../../../../RISCV-procesor.srcs/sources_1/new/CONTROL_PATH.vhd" \
+"../../../../RISCV-procesor.srcs/sources_1/new/REGISTER_BANK.vhd" \
+"../../../../RISCV-procesor.srcs/sources_1/new/IMMEDIATE.vhd" \
+
+vhdl2008 xil_defaultlib  \
+"../../../../RISCV-procesor.srcs/sources_1/new/ALU.vhd" \
+
+vhdl xil_defaultlib  \
+"../../../../RISCV-procesor.srcs/sources_1/new/DATA_PATH.vhd" \
+"../../../../RISCV-procesor.srcs/sources_1/new/TOP_RISCV.vhd" \
+"../../../../RISCV-procesor.srcs/sources_1/new/txt_util.vhd" \
+"../../../../RISCV-procesor.srcs/sim_1/new/Testbench_RISCV.vhd" \
+
+# Do not sort compile order
+nosort

@@ -1,0 +1,17 @@
+0.7
+2020.2
+Nov 18 2020
+09:47:47
+C:/Users/ThinkPad T14 Gen3/RISCV-procesor/RISCV-procesor.srcs/sim_1/new/Testbench_RISCV.vhd,1680554204,vhdl,,,,testbench_riscv,,,,,,,,
+C:/Users/ThinkPad T14 Gen3/RISCV-procesor/RISCV-procesor.srcs/sources_1/new/ALU.vhd,1680191661,vhdl2008,C:/Users/ThinkPad T14 Gen3/RISCV-procesor/RISCV-procesor.srcs/sources_1/new/DATA_PATH.vhd,,,alu,,,,,,,,
+C:/Users/ThinkPad T14 Gen3/RISCV-procesor/RISCV-procesor.srcs/sources_1/new/ALU_DECODER.vhd,1680363270,vhdl,C:/Users/ThinkPad T14 Gen3/RISCV-procesor/RISCV-procesor.srcs/sources_1/new/CONTROL_PATH.vhd,,,alu_decoder,,,,,,,,
+C:/Users/ThinkPad T14 Gen3/RISCV-procesor/RISCV-procesor.srcs/sources_1/new/BRAM.vhd,1680443920,vhdl,C:/Users/ThinkPad T14 Gen3/RISCV-procesor/RISCV-procesor.srcs/sim_1/new/Testbench_RISCV.vhd,,,bram,,,,,,,,
+C:/Users/ThinkPad T14 Gen3/RISCV-procesor/RISCV-procesor.srcs/sources_1/new/CONTROL_PATH.vhd,1680537512,vhdl,C:/Users/ThinkPad T14 Gen3/RISCV-procesor/RISCV-procesor.srcs/sources_1/new/TOP_RISCV.vhd,,,control_path,,,,,,,,
+C:/Users/ThinkPad T14 Gen3/RISCV-procesor/RISCV-procesor.srcs/sources_1/new/CTRL_DECODER.vhd,1680111224,vhdl,C:/Users/ThinkPad T14 Gen3/RISCV-procesor/RISCV-procesor.srcs/sources_1/new/CONTROL_PATH.vhd,,,ctrl_decoder,,,,,,,,
+C:/Users/ThinkPad T14 Gen3/RISCV-procesor/RISCV-procesor.srcs/sources_1/new/DATA_PATH.vhd,1680539262,vhdl,C:/Users/ThinkPad T14 Gen3/RISCV-procesor/RISCV-procesor.srcs/sources_1/new/TOP_RISCV.vhd,,,data_path,,,,,,,,
+C:/Users/ThinkPad T14 Gen3/RISCV-procesor/RISCV-procesor.srcs/sources_1/new/FORWARDING_UNIT.vhd,1680443595,vhdl,C:/Users/ThinkPad T14 Gen3/RISCV-procesor/RISCV-procesor.srcs/sources_1/new/CONTROL_PATH.vhd,,,forwarding_unit,,,,,,,,
+C:/Users/ThinkPad T14 Gen3/RISCV-procesor/RISCV-procesor.srcs/sources_1/new/HAZARD_UNIT.vhd,1680275473,vhdl,C:/Users/ThinkPad T14 Gen3/RISCV-procesor/RISCV-procesor.srcs/sources_1/new/CONTROL_PATH.vhd,,,hazard_unit,,,,,,,,
+C:/Users/ThinkPad T14 Gen3/RISCV-procesor/RISCV-procesor.srcs/sources_1/new/IMMEDIATE.vhd,1680533991,vhdl,C:/Users/ThinkPad T14 Gen3/RISCV-procesor/RISCV-procesor.srcs/sources_1/new/DATA_PATH.vhd,,,immediate,,,,,,,,
+C:/Users/ThinkPad T14 Gen3/RISCV-procesor/RISCV-procesor.srcs/sources_1/new/REGISTER_BANK.vhd,1680551592,vhdl,C:/Users/ThinkPad T14 Gen3/RISCV-procesor/RISCV-procesor.srcs/sources_1/new/DATA_PATH.vhd,,,register_bank,,,,,,,,
+C:/Users/ThinkPad T14 Gen3/RISCV-procesor/RISCV-procesor.srcs/sources_1/new/TOP_RISCV.vhd,1680539993,vhdl,C:/Users/ThinkPad T14 Gen3/RISCV-procesor/RISCV-procesor.srcs/sim_1/new/Testbench_RISCV.vhd,,,top_riscv,,,,,,,,
+C:/Users/ThinkPad T14 Gen3/RISCV-procesor/RISCV-procesor.srcs/sources_1/new/txt_util.vhd,1680355980,vhdl,C:/Users/ThinkPad T14 Gen3/RISCV-procesor/RISCV-procesor.srcs/sim_1/new/Testbench_RISCV.vhd,,,txt_util,,,,,,,,
