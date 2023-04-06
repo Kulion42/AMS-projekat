@@ -57,8 +57,8 @@ architecture Behavioral of REGISTER_BANK is
 begin
  write_reg_file: process(clk)
     begin
-        if rising_edge(clk) then
-            if reset = '1' then
+        if falling_edge(clk) then
+            if reset = '0' then
                 reg_file_s <= (others => (others => '0')); 
             else
                 if rd_we_i ='1' then

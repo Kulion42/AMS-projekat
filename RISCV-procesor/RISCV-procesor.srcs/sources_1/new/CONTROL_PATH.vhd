@@ -66,12 +66,9 @@ signal funct3_ex_s: std_logic_vector(2 downto 0);
 signal funct7_ex_s: std_logic_vector(6 downto 0);
 signal control_pass_s: std_logic;
 signal rs1_address_ex_s , rs2_address_ex_s, rd_address_ex_s, rd_address_mem_s, rd_address_wb_s: std_logic_vector(4 downto 0);
-signal id_reg_o, ex_reg_i: std_logic_vector(31 downto 0);
-signal ex_reg_o, mem_reg_i: std_logic_vector(7 downto 0);
-signal mem_reg_o, wb_reg_i: std_logic_vector(6 downto 0);
 begin
 
---STRUKTURALNI(ENTITY)DIO CONTROL PATH-a
+                                                            --STRUKTURALNI(ENTITY)DIO CONTROL PATH-a
 ctrl_decoder: entity work.CTRL_DECODER
     port map(
         opcode_i => instruction_i(6 downto 0),
@@ -135,70 +132,75 @@ next_sel_gate:
     pc_next_sel_o <= branch_id_s and branch_condition_i;
     if_id_flush_o <= branch_id_s and branch_condition_i;
     
---REGISTRI PROTOCNE OBRADE CONTROL PATH-a
-    --Konkatenacija ulaza u id_ex_reg
-    id_reg_o <= mem_to_reg_id_s & data_mem_we_id_s & rd_we_id_s & alu_src_b_id_s & branch_id_s & 
-    alu_2bit_op_id_s & instruction_i(14 downto 12) & instruction_i(31 downto 25) & instruction_i(11 downto 7) & 
-    instruction_i(19 downto 15) & instruction_i(24 downto 20);
+                                                            --REGISTRI PROTOCNE OBRADE CONTROL PATH-a
     
 id_ex_reg: process(clk)
     begin
         if rising_edge(clk) then
-            if control_pass_s = '0' or reset = '1' then
-                ex_reg_i <= (others => '0');  
+            if  reset = '0' then
+                mem_to_reg_ex_s <= '0';
+                data_mem_we_ex_s <= '0';
+                rd_we_ex_s <= '0';
+                alu_src_b_o <= '0';
+                branch_ex_s <= '0';
+                alu_2bit_op_ex_s <= (others => '0');
+                funct3_ex_s <= (others => '0');
+                funct7_ex_s <= (others => '0');
+                rd_address_ex_s <= (others => '0');
+                rs1_address_ex_s <= (others => '0');
+                rs2_address_ex_s <= (others => '0');   
             else
-                ex_reg_i <= id_reg_o;
+                if control_pass_s <= '1' then
+                    mem_to_reg_ex_s <= mem_to_reg_id_s;
+                    data_mem_we_ex_s <= data_mem_we_id_s;
+                    rd_we_ex_s <= rd_we_id_s;
+                    alu_src_b_o <= alu_src_b_id_s;
+                    branch_ex_s <= branch_id_s;
+                    alu_2bit_op_ex_s <= alu_2bit_op_id_s;
+                    funct3_ex_s <= instruction_i(14 downto 12);
+                    funct7_ex_s <= instruction_i(31 downto 25);
+                    rd_address_ex_s <= instruction_i(11 downto 7);
+                    rs1_address_ex_s <= instruction_i(19 downto 15);
+                    rs2_address_ex_s <= instruction_i(24 downto 20);
+                end if;
             end if;
         end if;
     end process;
---Signali ex faze
-mem_to_reg_ex_s <= ex_reg_i(31);
-data_mem_we_ex_s <= ex_reg_i(30);
-rd_we_ex_s <= ex_reg_i(29);
-alu_src_b_o <= ex_reg_i(28);
-branch_ex_s <= ex_reg_i(27);
-alu_2bit_op_ex_s <= ex_reg_i(26 downto 25);
-funct3_ex_s <= ex_reg_i(24 downto 22);
-funct7_ex_s <= ex_reg_i(21 downto 15);
-rd_address_ex_s <= ex_reg_i(14 downto 10);
-rs1_address_ex_s <= ex_reg_i(9 downto 5);
-rs2_address_ex_s <= ex_reg_i(4 downto 0);
 
-  --Konkatenacija ulaza u ex_mem_registar
-     ex_reg_o <= mem_to_reg_ex_s & data_mem_we_ex_s & rd_we_ex_s & rd_address_ex_s;
 ex_mem_reg: process(clk)
 begin
     if rising_edge(clk) then
-      if reset = '1' then
-        mem_reg_i <= (others => '0');
+      if reset = '0' then
+        mem_to_reg_mem_s <= '0';
+        data_mem_we_mem_s <= '0';
+        rd_we_mem_s <= '0';
+        rd_address_mem_s <= (others => '0');
       else
-        mem_reg_i <= ex_reg_o;
+        mem_to_reg_mem_s <= mem_to_reg_ex_s;
+        data_mem_we_mem_s <= data_mem_we_ex_s;
+        rd_we_mem_s <= rd_we_ex_s;
+        rd_address_mem_s <= rd_address_ex_s;
       end if;
     end if;
 end process;
 
---Signali mem faze
-mem_to_reg_mem_s <= mem_reg_i(7);
-data_mem_we_mem_s <= mem_reg_i(6);
-rd_we_mem_s <= mem_reg_i(5);
-rd_address_mem_s <= mem_reg_i(4 downto 0);
 
-  --Konkatenacija ulaza u mem_wb_reg
-     mem_reg_o <= mem_to_reg_mem_s & rd_we_mem_s & rd_address_mem_s;
 mem_wb_reg: process(clk)
 begin
     if rising_edge(clk) then
-        if reset = '1' then
-            wb_reg_i <= (others => '0');
+        if reset = '0' then
+            mem_to_reg_o <= '0';
+            rd_we_wb_s <= '0';
+            rd_address_wb_s <= (others => '0');
         else
-            wb_reg_i <= mem_reg_o;
-        end if;
+            mem_to_reg_o <= mem_to_reg_mem_s;
+            rd_we_wb_s <= rd_we_mem_s;
+            rd_address_wb_s <= rd_address_mem_s;
+            
+       end if;
     end if;
 end process;
-
---Signali WB faze
-mem_to_reg_o <= wb_reg_i(6);
-rd_we_wb_s <= wb_reg_i(5);
-rd_address_wb_s <= wb_reg_i(4 downto 0);
 rd_we_o <= rd_we_wb_s;
+
+
 end Behavioral;

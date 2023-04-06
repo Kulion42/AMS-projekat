@@ -5,25 +5,4 @@ Using 2 slave threads.
 Starting static elaboration
 WARNING: [VRFC 10-3813] value in initialization depends on signal 'a_i' [C:/Users/ThinkPad T14 Gen3/RISCV-procesor/RISCV-procesor.srcs/sources_1/new/ALU.vhd:49]
 Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling package std.standard
-Compiling package std.textio
-Compiling package ieee.std_logic_1164
-Compiling package xil_defaultlib.txt_util
-Compiling package ieee.numeric_std
-Compiling package ieee.math_real
-Compiling architecture behavioral of entity xil_defaultlib.BRAM [bram_default]
-Compiling architecture behavioral of entity xil_defaultlib.REGISTER_BANK [register_bank_default]
-Compiling architecture behavioral of entity xil_defaultlib.IMMEDIATE [immediate_default]
-Compiling architecture behavioral of entity xil_defaultlib.ALU [alu_default]
-Compiling architecture behavioral of entity xil_defaultlib.DATA_PATH [data_path_default]
-Compiling architecture behavioral of entity xil_defaultlib.CTRL_DECODER [ctrl_decoder_default]
-Compiling architecture behavioral of entity xil_defaultlib.ALU_DECODER [alu_decoder_default]
-Compiling architecture behavioral of entity xil_defaultlib.FORWARDING_UNIT [forwarding_unit_default]
-Compiling architecture behavioral of entity xil_defaultlib.HAZARD_UNIT [hazard_unit_default]
-Compiling architecture behavioral of entity xil_defaultlib.CONTROL_PATH [control_path_default]
-Compiling architecture behavioral of entity xil_defaultlib.TOP_RISCV [top_riscv_default]
-Compiling architecture behavioral of entity xil_defaultlib.testbench_riscv
-Built simulation snapshot Testbench_RISCV_behav
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel

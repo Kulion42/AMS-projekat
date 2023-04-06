@@ -41,33 +41,42 @@ end IMMEDIATE;
 architecture Behavioral of IMMEDIATE is
 begin
 imm_proc: process(instruction_i)
-constant pom1: std_logic_vector(19 downto 0) := (others => '0');
-constant pom2: std_logic_vector(19 downto 0) := (others => '1');
-    begin
+constant pom1: std_logic_vector(26 downto 0) := (others => '0');
+constant pom2: std_logic_vector(26 downto 0) := (others => '1'); 
+begin
+    immidiate_extended_o <= (others => '0');
         if instruction_i(6 downto 0) = "1100011" then
             if instruction_i(31) = '1' then
-                immidiate_extended_o <= pom2 & instruction_i(31) & instruction_i(7) & instruction_i(30 downto 25) & instruction_i(11 downto 8);
+                immidiate_extended_o <= pom2(19 downto 0) & instruction_i(31) & instruction_i(7) & instruction_i(30 downto 25) & instruction_i(11 downto 8);
             else
-                immidiate_extended_o <= pom1 & instruction_i(31) & instruction_i(7) & instruction_i(30 downto 25) & instruction_i(11 downto 8);     
+                immidiate_extended_o <= pom1(19 downto 0) & instruction_i(31) & instruction_i(7) & instruction_i(30 downto 25) & instruction_i(11 downto 8);     
             end if;
         elsif  instruction_i(6 downto 0) = "0100011" then
             if instruction_i(31) = '1' then
-                immidiate_extended_o <= pom2 & instruction_i(31 downto 25) & instruction_i(11 downto 7);
+                immidiate_extended_o <= pom2(19 downto 0) & instruction_i(31 downto 25) & instruction_i(11 downto 7);
             else
-                immidiate_extended_o <= pom1 & instruction_i(31 downto 25) & instruction_i(11 downto 7);     
+                immidiate_extended_o <= pom1(19 downto 0) & instruction_i(31 downto 25) & instruction_i(11 downto 7);     
             end if;
         elsif instruction_i(6 downto 0) = "0000011" then
             if instruction_i(31) = '1' then
-                immidiate_extended_o <= pom2 & instruction_i(31 downto 20);
+                immidiate_extended_o <= pom2(19 downto 0) & instruction_i(31 downto 20);
             else
-                immidiate_extended_o <= pom1 & instruction_i(31 downto 20);     
+                immidiate_extended_o <= pom1(19 downto 0) & instruction_i(31 downto 20);     
             end if;   
-        else
-            if instruction_i(31) = '1' then
-                immidiate_extended_o <= pom2 & instruction_i(31 downto 20);
+        elsif instruction_i(6 downto 0) = "0010011" then
+           if instruction_i(14 downto 12) = "001" or instruction_i(14 downto 12) = "101" then
+                if instruction_i(31) = '1' then
+                    immidiate_extended_o <= pom2 & instruction_i(24 downto 20);
+                else
+                    immidiate_extended_o <= pom1 & instruction_i(24 downto 20);     
+                end if;    
             else
-                immidiate_extended_o <= pom1 & instruction_i(31 downto 20);     
-            end if;            
-        end if;   
+                if instruction_i(31) = '1' then
+                    immidiate_extended_o <= pom2(19 downto 0) & instruction_i(31 downto 20);
+                else
+                    immidiate_extended_o <= pom1(19 downto 0) & instruction_i(31 downto 20);     
+                end if;                   
+           end if; 
+       end if;  
 end process;
 end Behavioral;

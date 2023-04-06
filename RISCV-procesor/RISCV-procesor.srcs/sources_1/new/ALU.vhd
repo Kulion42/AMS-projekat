@@ -61,7 +61,7 @@ begin
         when "0001" => 
             res_s <= std_logic_vector(signed(a_i) - signed(b_i));
         when "0010" =>           
-           res_s <=std_logic_vector(signed(b_i) sll var);
+           res_s <=std_logic_vector(signed(a_i) sll TO_INTEGER(signed(b_i)));
         when "0100" =>
             if signed(a_i) > signed(b_i) then
                 res_s <= (others => '1');    
@@ -77,9 +77,9 @@ begin
         when "1000" =>
             res_s <= std_logic_vector(signed(a_i) xor signed(b_i));
         when "1010" =>
-            res_s <= std_logic_vector(signed(b_i) srl var);
+            res_s <= std_logic_vector(signed(a_i) srl TO_INTEGER(signed(b_i)));
         when "1011" =>
-            res_s <= std_logic_vector(unsigned(b_i) srl var);
+            res_s <= to_stdlogicvector(to_bitvector(a_i) sra  TO_INTEGER(signed(b_i)));
         when "1110" =>
             res_s <= std_logic_vector(signed(a_i) and signed(b_i));
         when "1100" =>

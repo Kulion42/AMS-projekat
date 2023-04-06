@@ -57,57 +57,48 @@ architecture Behavioral of FORWARDING_UNIT is
 signal alu_forward_a_s, alu_forward_b_s: std_logic_vector(1 downto 0);
 signal branch_forward_a_s, branch_forward_b_s: std_logic;
 begin
-    --alu_forward_a_s <= "00";
-    --alu_forward_b_s <= "00";
-    --branch_forward_a_s <= '0';
-    --branch_forward_b_s <= '0';
-
+    
 forward_process: process(rs1_address_ex_i, rs2_address_ex_i, rd_we_mem_i, rd_address_mem_i, rd_we_wb_i, rd_address_wb_i)
 begin
-    if (rd_we_mem_i = '1' and rd_address_mem_i /= "00000") then
-        if(rs1_address_ex_i = rd_address_mem_i) then
-            alu_forward_a_s <= "10";
-        else
-            alu_forward_a_s <= "00";
-        end if;
-        if(rs2_address_ex_i = rd_address_mem_i) then
-            alu_forward_b_s <= "10";
-        else
-            alu_forward_b_s <= "00";
-        end if;
-    elsif (rd_we_wb_i = '1' and rd_address_wb_i /= "00000") then
-        if(rs1_address_ex_i = rd_address_wb_i) then
-            alu_forward_a_s <= "01";
-        else
-            alu_forward_a_s <= "00";
-        end if;
-        if(rs2_address_ex_i = rd_address_wb_i) then
-            alu_forward_b_s <= "01";
-        else
-            alu_forward_b_s <= "00";
-        end if;
-    else
-        alu_forward_a_s <= "00";  
-        alu_forward_b_s <= "00";
-    end if;  
+    alu_forward_a_s <= "00";
+    alu_forward_b_s <= "00";
+        if (rd_we_wb_i = '1' and rd_address_wb_i /= "00000") then
+            if(rs1_address_ex_i = rd_address_wb_i) then
+                alu_forward_a_s <= "01";
+            --else
+                --alu_forward_a_s <= "00";
+            end if;
+            if(rs2_address_ex_i = rd_address_wb_i) then
+                alu_forward_b_s <= "01";
+            --else
+               --alu_forward_b_s <= "00";
+            end if;
+        end if;  
+        if (rd_we_mem_i = '1' and rd_address_mem_i /= "00000") then
+            if(rs1_address_ex_i = rd_address_mem_i) then
+                alu_forward_a_s <= "10";
+            --else
+                --alu_forward_a_s <= "00";
+            end if;
+            if(rs2_address_ex_i = rd_address_mem_i) then
+                alu_forward_b_s <= "10";
+            --else
+               -- alu_forward_b_s <= "00";
+            end if;
+         end if;
 end process;
 
 branch_process: process(rs1_address_id_i, rs2_address_id_i, rd_address_mem_i, rd_we_mem_i)
 begin
+    branch_forward_a_s <= '0';
+    branch_forward_b_s <= '0';
     if (rd_we_mem_i= '1' and rd_address_mem_i /= "00000") then
         if  (rs1_address_id_i = rd_address_mem_i )  then
             branch_forward_a_s <= '1';
-        else
-            branch_forward_a_s <= '0';
         end if;
         if  (rs2_address_id_i = rd_address_mem_i )  then
             branch_forward_b_s <= '1';
-        else
-            branch_forward_b_s <= '0';
         end if;
-    else
-        branch_forward_a_s <= '0';
-        branch_forward_b_s <= '0';
     end if;
 end process;
 

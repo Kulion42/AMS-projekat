@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="Testbench_RISCV_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="Testbench_RISCV" />
+            <top_module name="txt_util" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="2975760fs"></ZoomStartTime>
+      <ZoomEndTime time="4450761fs"></ZoomEndTime>
+      <Cursor1Time time="3700000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="212"></NameColumnWidth>
+      <ValueColumnWidth column_width="174"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="28" />
+   <wvobject fp_name="/Testbench_RISCV/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Testbench_RISCV/reset" type="logic">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Testbench_RISCV/ena_instr_s" type="logic">
+      <obj_property name="ElementShortName">ena_instr_s</obj_property>
+      <obj_property name="ObjectShortName">ena_instr_s</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Testbench_RISCV/enb_instr_s" type="logic">
+      <obj_property name="ElementShortName">enb_instr_s</obj_property>
+      <obj_property name="ObjectShortName">enb_instr_s</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Testbench_RISCV/wea_instr_s" type="array">
+      <obj_property name="ElementShortName">wea_instr_s[3:0]</obj_property>
+      <obj_property name="ObjectShortName">wea_instr_s[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Testbench_RISCV/web_instr_s" type="array">
+      <obj_property name="ElementShortName">web_instr_s[3:0]</obj_property>
+      <obj_property name="ObjectShortName">web_instr_s[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Testbench_RISCV/addra_instr_s" type="array">
+      <obj_property name="ElementShortName">addra_instr_s[9:0]</obj_property>
+      <obj_property name="ObjectShortName">addra_instr_s[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Testbench_RISCV/addrb_instr_s" type="array">
+      <obj_property name="ElementShortName">addrb_instr_s[9:0]</obj_property>
+      <obj_property name="ObjectShortName">addrb_instr_s[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Testbench_RISCV/dina_instr_s" type="array">
+      <obj_property name="ElementShortName">dina_instr_s[31:0]</obj_property>
+      <obj_property name="ObjectShortName">dina_instr_s[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Testbench_RISCV/dinb_instr_s" type="array">
+      <obj_property name="ElementShortName">dinb_instr_s[31:0]</obj_property>
+      <obj_property name="ObjectShortName">dinb_instr_s[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Testbench_RISCV/douta_instr_s" type="array">
+      <obj_property name="ElementShortName">douta_instr_s[31:0]</obj_property>
+      <obj_property name="ObjectShortName">douta_instr_s[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Testbench_RISCV/doutb_instr_s" type="array">
+      <obj_property name="ElementShortName">doutb_instr_s[31:0]</obj_property>
+      <obj_property name="ObjectShortName">doutb_instr_s[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Testbench_RISCV/addrb_instr_32_s" type="array">
+      <obj_property name="ElementShortName">addrb_instr_32_s[31:0]</obj_property>
+      <obj_property name="ObjectShortName">addrb_instr_32_s[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Testbench_RISCV/TOP_RISCV_1/data_path/if_id_flush_i" type="logic">
+      <obj_property name="ElementShortName">if_id_flush_i</obj_property>
+      <obj_property name="ObjectShortName">if_id_flush_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Testbench_RISCV/TOP_RISCV_1/data_path/instr_mem_read_id" type="array">
+      <obj_property name="ElementShortName">instr_mem_read_id[31:0]</obj_property>
+      <obj_property name="ObjectShortName">instr_mem_read_id[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Testbench_RISCV/TOP_RISCV_1/data_path/immediate_extended_id" type="array">
+      <obj_property name="ElementShortName">immediate_extended_id[31:0]</obj_property>
+      <obj_property name="ObjectShortName">immediate_extended_id[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Testbench_RISCV/TOP_RISCV_1/data_path/pc_mux_o" type="array">
+      <obj_property name="ElementShortName">pc_mux_o[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pc_mux_o[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Testbench_RISCV/TOP_RISCV_1/data_path/pc_out" type="array">
+      <obj_property name="ElementShortName">pc_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pc_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Testbench_RISCV/TOP_RISCV_1/data_path/pc_out_id" type="array">
+      <obj_property name="ElementShortName">pc_out_id[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pc_out_id[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Testbench_RISCV/TOP_RISCV_1/data_path/instr_mem_address_id" type="array">
+      <obj_property name="ElementShortName">instr_mem_address_id[31:0]</obj_property>
+      <obj_property name="ObjectShortName">instr_mem_address_id[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Testbench_RISCV/TOP_RISCV_1/data_path/instr_mem_address_s" type="array">
+      <obj_property name="ElementShortName">instr_mem_address_s[31:0]</obj_property>
+      <obj_property name="ObjectShortName">instr_mem_address_s[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Testbench_RISCV/ena_data_s" type="logic">
+      <obj_property name="ElementShortName">ena_data_s</obj_property>
+      <obj_property name="ObjectShortName">ena_data_s</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Testbench_RISCV/wea_data_s" type="array">
+      <obj_property name="ElementShortName">wea_data_s[3:0]</obj_property>
+      <obj_property name="ObjectShortName">wea_data_s[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Testbench_RISCV/addra_data_s" type="array">
+      <obj_property name="ElementShortName">addra_data_s[9:0]</obj_property>
+      <obj_property name="ObjectShortName">addra_data_s[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Testbench_RISCV/dina_data_s" type="array">
+      <obj_property name="ElementShortName">dina_data_s[31:0]</obj_property>
+      <obj_property name="ObjectShortName">dina_data_s[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Testbench_RISCV/douta_data_s" type="array">
+      <obj_property name="ElementShortName">douta_data_s[31:0]</obj_property>
+      <obj_property name="ObjectShortName">douta_data_s[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Testbench_RISCV/addra_data_32_s" type="array">
+      <obj_property name="ElementShortName">addra_data_32_s[31:0]</obj_property>
+      <obj_property name="ObjectShortName">addra_data_32_s[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Testbench_RISCV/TOP_RISCV_1/data_path/reg_bank/reg_file_s" type="array">
+      <obj_property name="ElementShortName">reg_file_s[0:31][31:0]</obj_property>
+      <obj_property name="ObjectShortName">reg_file_s[0:31][31:0]</obj_property>
+   </wvobject>
+</wave_config>

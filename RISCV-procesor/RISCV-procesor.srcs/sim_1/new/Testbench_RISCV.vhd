@@ -39,7 +39,7 @@ end Testbench_RISCV;
 
 architecture Behavioral of Testbench_RISCV is
     --Operand za pristup asemblerskom kodu
-    file RISCV_instructions : text open read_mode is "C:\Users\ThinkPad T14 Gen3\RISCV-procesor\assembly_code.txt";
+    file RISCV_instructions : text open read_mode is "C:\Users\ThinkPad T14 Gen3\RISCV-procesor\assembly_code_sa_beq.txt";
     --Globalni signali
     signal clk : std_logic := '0';
     signal reset: std_logic;
@@ -137,7 +137,7 @@ variable row : line;
 variable i : integer := 0;
 begin
 
-    reset <= '1';
+    reset <= '0';
     wea_instr_s <= (others => '1');
     while (not endfile(RISCV_instructions)) loop
         readline(RISCV_instructions, row);
@@ -147,7 +147,7 @@ begin
         wait until rising_edge(clk);
     end loop;
     wea_instr_s <= (others => '0');
-    reset       <= '0' after 20 ns;
+    reset       <= '1' after 20 ns;
     wait;
 end process;
 
