@@ -53,7 +53,7 @@ end REGISTER_BANK;
 
 architecture Behavioral of REGISTER_BANK is
      type reg_file_t is array(0 to 31) of std_logic_vector(WIDTH-1 downto 0);
-     signal reg_file_s : reg_file_t;
+     signal reg_file_s : reg_file_t := (others => (others => '0'));
 begin
  write_reg_file: process(clk)
     begin
